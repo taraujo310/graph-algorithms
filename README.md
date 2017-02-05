@@ -35,6 +35,12 @@ This is my first time using Minitest...
 - [Slides da Disciplina Algoritmos em Grafos][10]
 - [Site da Disciplina][11]
 
+## Algorithms
+
+Here is the list with the algorithms implemented. I'll try to write an overview and put together.
+
+- [Depth First Search][12]
+
 ## So...
 
 So this is it! :)
@@ -50,3 +56,4 @@ So this is it! :)
 [9]: http://www2.ic.uff.br/~fabio/Palestra-Aplicacoes-Grafos.pdf
 [10]: http://www2.ic.uff.br/~fabio/slides-alggrafos.pdf
 [11]: http://www2.ic.uff.br/~fabio/aggrad.htm
+[12]: https://github.com/tururay/graph-algorithms/tree/master/DFS
