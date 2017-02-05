@@ -32,7 +32,7 @@ Maybe in the future I'll implement probabilistic models. It's a thought!
 Here is a representation of the output:
 
 ```
-4 5 5
+4 5
 2 1 4
 4 3 9
 1 4 -5
@@ -40,4 +40,4 @@ Here is a representation of the output:
 3 2 7
 ```
 
-This graph has 4 vertices and 5 edges {(2,1), (4,3), (1,4), (2,4), (3,2)} com with the respectives weights {5, 4, 9, -5, 3, 7}.
+This graph has 4 vertices and 5 edges {(2,1), (4,3), (1,4), (2,4), (3,2)} com with the respectives weights {4, 9, -5, 3, 7}.

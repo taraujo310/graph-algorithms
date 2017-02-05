@@ -2,12 +2,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.10.1)
+    minitest-filesystem (1.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   minitest
+  minitest-filesystem
 
 BUNDLED WITH
    1.14.3
