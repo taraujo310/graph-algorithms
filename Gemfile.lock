@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.7.0)
+    byebug (9.0.6)
     minitest (5.10.1)
     minitest-filesystem (1.2.0)
 
@@ -8,6 +10,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  byebug
   minitest
   minitest-filesystem
 
