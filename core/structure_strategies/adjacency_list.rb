@@ -4,26 +4,32 @@ require 'byebug'
 require 'awesome_print'
 
 class AdjacencyList
-  attr_accessor :list, :data, :file_ref, :vertices
+  attr_accessor :adjacency_list, :data, :file_ref, :vertices
 
   def initialize(filepath)
     @file_ref = filepath
-    @data = get_data
-    @list = create_graph
+    @data = File.readlines(@file_ref)
+    @adjacency_list = {}
+    initialize_adjacency_list
+
+    @vertices = Set.new @adjacency_list.keys
+    create_relations
   end
 
   def to_s
-    ap list
+    ap adjacency_list
+  end
+
+  def neighbors_of(vertex)
+    adjacency_list[vertex]
   end
 
   private
-  def get_data
-    File.readlines(file_ref)
-  end
-
-  def create_graph
-    list = initialize_list(number_of_vertices)
-    create_relations(list)
+  def initialize_adjacency_list
+    number_of_vertices.times do |i|
+      v = Vertex.new("#{i+1}")
+      adjacency_list[v] = []
+    end
   end
 
   def number_of_vertices
@@ -34,25 +40,20 @@ class AdjacencyList
     data.reject{ |e| e == data.first }
   end
 
-  def initialize_list(vertices_amount)
-    list = {}
-    vertices_amount.times do |i|
-      v = Vertex.new("#{i+1}")
-      list[v] = []
-    end
-    list
-  end
-
-  def create_relations(list)
-    vertices = Set.new list.keys
+  def create_relations
     edges.each do |relation|
-      src, destiny = source_and_destiny(relation, vertices)
-      list[src] << destiny
+      src, destiny = source_and_destiny(relation)
+
+      if src == destiny
+        adjacency_list[src] << destiny unless adjacency_list[src].include? destiny
+      else
+        adjacency_list[src] << destiny unless adjacency_list[src].include? destiny
+        adjacency_list[destiny] << src unless adjacency_list[destiny].include? src
+      end
     end
-    list
   end
 
-  def source_and_destiny(relation, vertices)
+  def source_and_destiny(relation)
     source_name, destiny_name = relation.split(' ')
     source = vertices.select{ |v| v.name == source_name }.first
     destiny = vertices.select{ |v| v.name == destiny_name }.first
