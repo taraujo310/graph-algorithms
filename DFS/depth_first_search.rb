@@ -5,7 +5,7 @@ class DepthFirstSearch
 
   attr_accessor :source, :graph, :clock
 
-  def initialize(args)
+  def initialize(args=nil)
     @source = nil
     @graph = nil
     @clock = 0
